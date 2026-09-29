@@ -1,185 +1,195 @@
 <!doctype html>
 <html lang="pt-BR">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-  <meta name="theme-color" content="#063b24">
-  <title>★ FELIZ ANIVERSÁRIO RENATINHO ★</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#061b12">
+<title>★ RENATINHO BIRTHDAY INTERNET ★</title>
+<link rel="stylesheet" href="style.css?v=14">
+
 <style>
-/* V6 — CARD OPENING MUSIC / ONE-CLICK AUDIO */
-.card-open-audio{
-  position:fixed;left:50%;bottom:22px;transform:translateX(-50%);
-  z-index:10001;display:none;align-items:center;gap:8px;
-  padding:7px 10px;background:#080b09;color:#fff;
-  border:5px ridge #fff;box-shadow:5px 5px #000,0 0 20px rgba(0,255,102,.3);
-  font:7px var(--pixel);text-shadow:1px 1px #000;
-}
-.card-open-audio.show{display:flex}
-.card-open-audio .music-dot{width:8px;height:8px;background:#00ff66;border-radius:50%;box-shadow:0 0 10px #00ff66;animation:musicPulse .7s infinite alternate}
-.card-open-audio button{padding:5px 8px!important;font:7px var(--pixel)!important}
-@keyframes musicPulse{to{transform:scale(1.5);opacity:.45}}
+/* V10 readability + heart finale */
+.card-title,.memory-card h3,.memory-card .tag,.card-label,.memory-card strong{font-family:Arial,sans-serif!important;color:#fff!important;text-shadow:2px 2px 0 #111,0 0 5px #000!important;font-weight:900!important;letter-spacing:.4px}
+.memory-card .tag{background:#111!important;border:3px solid #fff!important;padding:4px 7px!important;display:inline-block}
+.final-unlock{background:linear-gradient(135deg,#fff0f5,#ffd2dc,#b8ffd0)!important;position:relative;overflow:hidden}
+.final-unlock:before,.final-unlock:after{content:"♥";position:absolute;font-size:42px;opacity:.28;animation:heartFloat 3s infinite ease-in-out}
+.final-unlock:before{left:7%;bottom:8%}.final-unlock:after{right:9%;top:8%;animation-delay:1s}
+.final-inner{background:radial-gradient(circle at 50% 30%,rgba(255,80,130,.25),transparent 30%),linear-gradient(135deg,#fff,#ffd6e1)!important}
+.final-lock{font-size:68px!important;animation:heartBeat 1s infinite}
+.final-inner h3{color:#8d1738;text-shadow:2px 2px #fff}
+@keyframes heartBeat{50%{transform:scale(1.18);filter:drop-shadow(0 0 14px #ff4d75)}}@keyframes heartFloat{50%{transform:translateY(-20px) rotate(10deg)}}
+</style>
+<style>
+.legacy-grid-3{grid-template-columns:repeat(3,minmax(0,1fr))!important}
+.slideshow-frame{width:min(240px,90%)!important;height:170px!important;position:relative}
+.slideshow-frame img{width:100%;height:100%;object-fit:cover}
+.photo-caption{font-size:9px;min-height:28px;padding:4px 8px;color:#111;font-weight:bold}
+.photo-controls{display:flex;justify-content:center;gap:5px;padding:7px;flex-wrap:wrap}
+.capsule-stats{background:#111;color:#8dffb4;font:10px monospace;padding:10px;margin:10px 0;border:4px ridge #fff;line-height:1.7}
+.capsule-content{margin-top:10px}
+@media(max-width:900px){.legacy-grid-3{grid-template-columns:1fr!important}}
+</style>
+
+<style id="v17-patch-styles">
+.v17-nav{position:fixed;right:12px;top:12px;z-index:8500}
+.v17-nav button,.v17-back-btn{font-family:"Courier New",monospace;font-size:10px;font-weight:900;padding:7px 10px;background:linear-gradient(#fff,#d8eadc);color:#102c1b;border:4px outset #fff;box-shadow:3px 3px #111;cursor:pointer}
+.v17-nav button:active,.v17-back-btn:active{border-style:inset;transform:translate(2px,2px);box-shadow:1px 1px #111}
+.legacy-head{display:flex!important;align-items:center!important;justify-content:center!important;line-height:1!important;white-space:nowrap!important;box-sizing:border-box}
+.legacy-head span{display:inline-block!important;margin:0!important;padding:0!important}
+.memory-card.v17-open{animation:v17CardOpen .62s cubic-bezier(.2,.85,.2,1) both}
+@keyframes v17CardOpen{0%{transform:perspective(850px) rotateY(-90deg) scale(.88);opacity:.25;filter:brightness(1.7)}55%{transform:perspective(850px) rotateY(10deg) scale(1.04);opacity:1}100%{transform:perspective(850px) rotateY(0) scale(1);opacity:1}}
+.v17-love-reveal{animation:v17LoveReveal .72s cubic-bezier(.2,.85,.2,1) both}
+@keyframes v17LoveReveal{0%{transform:scale(.65) rotate(-4deg);opacity:0;filter:brightness(1.8)}65%{transform:scale(1.04) rotate(1deg);opacity:1}100%{transform:scale(1) rotate(0);opacity:1}}
 </style>
 </head>
-<body>
-  <div class="crt" aria-hidden="true"></div>
-  <div class="stars" aria-hidden="true"></div>
-  <div class="sparkle-layer" id="sparkleLayer" aria-hidden="true"></div>
-  <div class="emoji-sky" id="emojiSky" aria-hidden="true"></div>
+<body><div id="v17HomeNav" class="v17-nav"><button type="button" onclick="window.scrollTo({top:0,behavior:'smooth'})">⌂ HOME</button></div>
+<div class="crt"></div>
+<div class="scan-noise"></div>
+<div class="cursor-spark" id="cursorSpark"></div>
 
-  <main class="page">
-    <section class="intro" id="intro" aria-labelledby="introTitle">
-      <div class="window-tag"><span>RENATINHO_STUDIOS.EXE</span><span>● ONLINE</span></div>
-      <div class="game-chrome" aria-hidden="true"><span>◀</span><b>RENATINHO BIRTHDAY EDITION</b><span>▶</span></div>
-      <div class="intro-inner">
-        <div class="sparkle">★ ✦ ★ ✧ ★</div>
-        <p class="tiny">!!! INCOMING TRANSMISSION !!!</p>
-        <h1 id="introTitle"><span>FELIZ ANIVERSÁRIO</span><strong>RENATINHO!!!</strong></h1>
-        <div class="save-slot"><span>1 PLAYER</span><span>FILE 01</span><span>♥♥♥♥♥</span></div>
-        <div class="birthday-badge" aria-label="26 anos em 30 de outubro de 2026">
-          <span>★ BIRTHDAY EDITION ★</span><b>26 ANOS</b><small>30/10/2000 → 30/10/2026</small>
-        </div>
-        <p class="quest">VOCÊ FOI SELECIONADO PARA UMA<br><b>MISSÃO ESPECIAL!!!</b></p>
-        <p class="warning">AUMENTE O SOM • CLIQUE EM TUDO • NÃO CONFIE EM NADA</p>
-
-        <div class="loading-box" aria-label="Loading memories 100 percent">
-          <div>LOADING MEMORIES…</div>
-          <div class="loading-bar"><span></span></div>
-          <small>████████████████████ 100%</small>
-        </div>
-
-        <button id="enterBtn" class="start-btn" type="button">
-          <span>▶</span> START GAME <span>◀</span>
-        </button>
-
-        <div class="intro-marquee">
-          <span>★ BEST VIEWED AT 800x600 ★ USE INTERNET EXPLORER ★ NEW!!! ★ CLICK EVERYTHING. THIS IS THE INTERNET. &lt;&lt;</span>
-        </div>
-        <p class="copyright">© 2000-2026 RENATINHO STUDIOS<br>NO COOKIES. NO RESPONSIBILITY. 100% LOVE.</p>
-      </div>
-    </section>
-
-    <section class="wall hidden" id="wall" aria-labelledby="mainTitle">
-      <div class="game-banner"><span>PLAYER 1</span><b>RENATINHO</b><span>★ BIRTHDAY QUEST ★</span><span>PRESS START</span></div>
-      <header class="site-header">
-        <div class="logo">RENATINHO<br><span>2000</span></div>
-        <div class="title-block">
-          <div class="blink tiny">★ !!! SPECIAL EDITION !!! ★</div>
-          <h2 id="mainTitle">★ FELIZ ANIVERSÁRIO <em>RENATINHO!!!</em> ★</h2>
-          <p>UMA EXPERIÊNCIA INTERATIVA DE ALTA TECNOLOGIA DE 2004.</p>
-          <div class="age-mini">♥ 26 ANOS • 30/10/2026 • NASCIDO EM 30/10/2000 ♥</div>
-        </div>
-        <div class="visitor">YOU ARE VISITOR<br><b>#000013</b></div>
-      </header>
-
-      <div class="world-map-label"><span>SELECT YOUR MEMORIES</span><b>★ WORLD MAP ★</b><span>▲ ▼ MOVE • A ENTER • B BACK</span></div>
-      <div class="pixel-ground" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
-
-      <div class="console-hud" aria-label="Status do jogo">
-        <div class="hud-main"><span>PLAYER: <b>RENATINHO</b></span>
-        <span>LEVEL: <b>BIRTHDAY</b></span>
-        <span>LIVES: <b>♥ ♥ ♥ ♥ ♥</b></span>
-        <span>SCORE: <b id="score">000000</b></span>
-        <span>MEMORIES: <b id="progress">0/6</b></span></div>
-        <div class="hud-items"><span>🪙 <b id="coins">00</b></span><span>★ <b id="starsCollected">00</b></span><span>FILE <b>01</b></span></div>
-      </div>
-
-      <div class="retro-controls" aria-hidden="true"><span class="dpad">▲<i>◀</i><b>●</b><i>▶</i>▼</span><span class="control-help">A = ENTER &nbsp; B = BACK &nbsp; START = BEGIN</span><span class="ab">A<br><small>B</small></span></div>
-
-
-      <div class="notice">
-        <span class="new">NEW!!!</span>
-        <span>CLIQUE EM UMA FASE PARA DESBLOQUEAR UMA MEMÓRIA.</span>
-        <span class="blink">PRESS ENTER</span>
-      </div>
-
-      
-      
-      <div class="visitor-bar" aria-hidden="true">
-        <span>☻ YOU ARE VISITOR</span>
-        <strong id="visitorNumber">0001337</strong>
-        <span>★ TO THE COOLEST BIRTHDAY SITE ON THE INTERNET ★</span>
-        <span>♣ SIGN MY GUESTBOOK</span>
-      </div>
-<button id="openMakerBtn" type="button">🛠 CARD MAKER</button>
-      </div>
-
-<section class="playlist-box" aria-label="Playlist de aniversário">
-        <div class="playlist-head">
-          <div><span class="playlist-icon">♫</span><b>RENATINHO'S BIRTHDAY PLAYLIST</b><small>★ MÚSICAS DOS AMIGOS ★</small></div>
-          <span class="playlist-date">30/10/2026</span>
-        </div>
-        <div class="playlist-body">
-          <div class="playlist-window">
-            <div class="playlist-screen"><span id="nowPlaying">♪ SELECIONE UMA MÚSICA</span><small id="nowPlayingFriend">A playlist está esperando os amigos.</small></div>
-            <div class="playlist-controls"><button id="playlistPlay" type="button" aria-label="Reproduzir música">▶</button><button id="playlistPause" type="button" aria-label="Pausar música">Ⅱ</button><button id="playlistStop" type="button" aria-label="Parar música">■</button><div class="playlist-progress"><span id="playlistProgress"></span></div></div>
-          </div>
-          <div class="playlist-list" id="playlistList"><div class="playlist-empty">♪ NENHUMA MÚSICA ADICIONADA AINDA.<br><small>Os amigos podem colocar seus arquivos depois.</small></div></div>
-        </div>
-        <audio id="audioPlayer" preload="metadata"></audio>
-      </section>
-
-      <div class="world-progress" aria-hidden="true"><span id="worldProgressFill"></span></div>
-      <section class="cards-grid" id="cardsGrid" aria-label="Cartões de aniversário"></section>
-
-      <div class="level-clear hidden" id="levelClear">★ CONGRATULATIONS ★<small>ALL WORLDS CLEARED • 100% COMPLETE</small></div>
-
-      <div class="all-unlocked hidden" id="allUnlocked">
-        ★ ★ ★ ALL MEMORIES UNLOCKED ★ ★ ★
-        <small>VOCÊ DESCOBRIU O ARQUIVO SECRETO.</small>
-      </div>
-
-      <button class="final-card hidden" id="finalCard" type="button">
-        <span class="final-star">★</span>
-        <span class="final-title">SECRET FINAL FILE</span>
-        <span class="final-subtitle">[ ACCESS GRANTED ]</span>
-      </button>
-
-      <footer class="site-footer">
-        <div>BEST VIEWED AT 800x600 • MADE WITH ✦ GLITTER ✦ MS PAINT ✦ HTML</div>
-        <div>CLICK EVERYTHING. THIS IS THE INTERNET. &lt;&lt; <span class="blink">ONLINE!!!</span></div>
-      
-        <div class="public-secret-notice">
-          ★ FRIEND CARDS ARE CLASSIFIED ★ &nbsp;•&nbsp; SURPRISE MODE: ON &nbsp;•&nbsp;
-          <span>DO NOT SPOIL RENATINHO!!!</span>
-        </div>
-</footer>
-    </section>
-  </main>
-<div class="world-start hidden" id="worldStart" aria-hidden="true"><div class="world-start-card"><small id="worldStartSmall">WORLD 01</small><strong id="worldStartTitle">READY?</strong><span>PRESS A</span></div></div>
-
-  <div class="modal hidden" id="modal" aria-hidden="true">
-    <div class="modal-backdrop"></div>
-    <div class="modal-box" id="modalBox" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
-      <button class="close" id="closeBtn" type="button" aria-label="Fechar">X</button>
-      <div class="modal-topbar"><span>● ● ●</span><b id="modalFile">MEMORY.EXE</b><span>_ □ X</span></div>
-      <div id="animation"></div>
-      <div class="message" id="message"></div>
+<section id="intro" class="screen intro-screen">
+  <div class="topbar"><span>RENATINHO_STUDIOS.EXE</span><span>● ONLINE&nbsp;&nbsp;|&nbsp;&nbsp;NETSCAPE 2004</span></div>
+  <div class="intro-window">
+    <div class="window-title"><span>★ FELIZ ANIVERSÁRIO RENATINHO ★</span><span>_ □ X</span></div>
+    <div class="intro-content">
+      <div class="construction">⚠ UNDER CONSTRUCTION ⚠</div>
+      <div class="spark-row">✦ ★ ✧ ★ ✦ ★ ✧</div>
+      <div class="tiny blink">!!! INCOMING TRANSMISSION !!!</div>
+      <h1>FELIZ ANIVERSÁRIO <span>RENATINHO!!!</span></h1>
+      <div class="hero-avatar" aria-label="Renatinho">🧑🏻‍💻</div>
+      <div class="level-chip">PLAYER 01 • LEVEL 26 • HP ██████████</div>
+      <p class="intro-copy">PORQUE UM SIMPLES PARABÉNS NO WHATSAPP SERIA SIMPLES DEMAIS.<br>ATÉ O RENATINHO MERECE UMA EXPERIÊNCIA TRICOLOR.</p>
+      <div class="loading"><span>LOADING MEMORIES...</span><b><i></i></b><small>100% COMPLETE • NO VIRUSES* (*PROBABLY)</small></div>
+      <button id="startBtn" class="start-button">▶ ENTER THE INTERNET ◀</button>
+      <div class="marquee"><span>★ BEST VIEWED AT 800×600 ★ CLICK EVERYTHING ★ USE INTERNET EXPLORER ★ NEW!!! ★ FELIZ ANIVERSÁRIO!!! ★ FLU-MEMORY MODE: ON ★</span></div>
+      <div class="intro-foot">© 2000-2026 RENATINHO STUDIOS • MADE WITH TOO MUCH LOVE &amp; CSS</div>
     </div>
   </div>
+</section>
 
-  <script src="script.js"></script>
+<section id="site" class="screen site-screen hidden">
+  <div class="desktop">
+    <header class="sitebar">
+      <div class="brand"><b>RENATINHO</b><small>2000</small></div>
+      <div class="site-title"><span class="blink">★ SPECIAL EDITION ★</span><h2>FELIZ ANIVERSÁRIO RENATINHO</h2><p>THE MOST ADVANCED BIRTHDAY WEBSITE OF 2004*</p></div>
+      <div class="status-box">● ONLINE<br><b>VISITOR #000026</b></div>
+    </header>
 
-    <div class="desktop-widgets" id="desktopWidgets" aria-hidden="true">
-      <div class="desktop-window mini-win win-a">
-        <div class="mini-title">★ RENATO.EXE</div>
-        <div class="mini-body">STATUS: <b>AWESOME</b><br>LEVEL: <b>+1 YEAR</b></div>
-      </div>
-      <div class="desktop-window mini-win win-b">
-        <div class="mini-title">♫ NOW PLAYING</div>
-        <div class="mini-body"><span class="eq">▂▅▇▃▆▂</span><br>birthday.mp3</div>
-      </div>
-      <div class="construction-badge">⚠ UNDER<br>CONSTRUCTION ⚠</div>
+    <div class="desktop-body">
+      <aside class="sidebar">
+        <div class="win-box tilted-left">
+          <div class="box-head">RENATINHO.EXE</div>
+          <div class="profile">
+            <div class="mini-avatar">🧑🏻‍💻</div>
+            <b>STATUS: AWESOME</b>
+            <span>LEVEL: +1 YEAR</span>
+            <span>MOOD: ★★★★★</span>
+          </div>
+        </div>
+
+        <div class="win-box">
+          <div class="box-head">NAVIGATION</div>
+          <button class="nav-btn" data-scroll="cards">★ MEMORY CARDS</button>
+          <button class="nav-btn" data-scroll="playlist">♫ MUSIC ZONE</button>
+          <button class="nav-btn" data-scroll="legacy">💾 OLD INTERNET ZONE</button>
+          <button class="nav-btn" data-scroll="future">✉️ POSTERITY MESSAGE</button>
+          <a class="nav-btn friend-link" href="create.html">✦ FRIEND CARD FACTORY</a>
+        </div>
+
+        <div class="win-box construction-box">
+          <div>⚠ UNDER<br>CONSTRUCTION ⚠</div>
+          <small>PLEASE EXCUSE<br>THE AWESOME</small>
+        </div>
+
+        <div class="visitor-counter">YOU ARE VISITOR<br><strong>#000013</strong><br><span>◉ ◉ ◉ ◉ ◉</span></div>
+      </aside>
+
+      <main class="main-column">
+        <section class="welcome win-box">
+          <div class="box-head">WELCOME_TO_RENATINHO_WORLD.HTML</div>
+          <div class="welcome-inner">
+            <div class="floating-emojis">💚 ✨ 🦖 ⚽ 💿 📖 ⭐</div>
+            <div class="welcome-text">
+              <div class="tiny">!!! SELECT YOUR MEMORY !!!</div>
+              <h3>MUITOS AMIGOS.<br><span>MUITOS CARTÕES.<br>UMA FASE NOVA.</span></h3>
+              <p>Cada cartão tem uma animação própria — e a quantidade de amigos é ilimitada. Clique, abra, aumente o som e deixe a internet de 2004 fazer o que a internet de 2026 já esqueceu.</p>
+            </div>
+            <div class="renatinho-stage">
+              <div class="halo"></div>
+              <div class="pixel-person" id="renatinhoAvatar" title="click me...">🧑🏻‍💻</div>
+              <div class="floating-label">RENATINHO<br><b>★ 26 ★</b></div>
+            </div>
+          </div>
+        </section>
+
+<section id="playlist" class="playlist-section win-box">
+          <div class="box-head">♫ RENATINHO_PLAYLIST.EXE</div>
+          <div id="playlistContent" class="playlist-content">
+            <div class="disc">💿</div>
+            <div><b>THE SOUNDTRACK IS WAITING</b><p>As músicas escolhidas pelos amigos aparecem aqui depois que os cartões forem publicados.</p></div>
+          </div>
+        </section>
+
+        <div style="text-align:right;margin:6px 0"><button id="v17BackHome" class="v17-back-btn" type="button" onclick="window.scrollTo({top:0,behavior:'smooth'})">⌂ VOLTAR AO INÍCIO</button></div><section id="cards" class="cards-section">
+          <div class="section-head"><span>★ MEMORY CARDS ★</span><small>CLICK TO OPEN</small></div>
+          <div id="cardsGrid" class="cards-grid"></div>
+        </section>
+
+        
+        <section id="finalUnlock" class="final-unlock win-box">
+          <div class="box-head">★ ♥ THE LOVE FILE ♥ ★</div>
+          <div class="final-inner">
+            <div class="final-lock">🔒</div>
+            <div>
+              <div class="tiny blink">ALL FRIEND FILES MUST BE OPENED</div>
+              <h3>THERE IS STILL ONE FILE LEFT...</h3>
+              <p id="finalStatus">MEMORY FILES: <b>0 / 0</b></p>
+              <button id="finalBtn" class="final-button" disabled>🔒 ♥ LOVE FILE ♥</button>
+            </div>
+          </div>
+        </section>
+<section id="legacy" class="legacy-zone win-box retro-zone-fixed">
+          <div class="box-head legacy-head"><span>★ OLD INTERNET ZONE ★</span></div>
+          <div class="legacy-grid legacy-grid-3">
+            <div class="retro-app msn-app">
+              <div class="app-title">🟢 RENATINHO'S MSN MESSENGER</div>
+              <div class="msn-body"><div class="msn-avatar">🙂</div><div><b>Renatinho</b><br><span>online • birthday mode</span><p id="msnTyping">Renatinho is typing...</p></div></div>
+            </div>
+            <div class="retro-app photobooth">
+              <div class="app-title">📸 FRIENDS PHOTO BOOTH</div>
+              <div class="photo-frame slideshow-frame" id="photoFrame"><div id="photoSlideEmpty">NO PHOTOS YET<br><span>THE FRIEND CARDS WILL FILL THIS</span></div><img id="photoSlide" alt="" hidden></div>
+              <div id="photoCaption" class="photo-caption">As fotos dos cartões aparecerão aqui.</div>
+              <div class="photo-controls"><button id="photoPrev" class="pixel-btn">◀</button><button id="photoPlay" class="pixel-btn">▶ SLIDESHOW</button><button id="photoNext" class="pixel-btn">▶</button></div>
+            </div>
+            <div class="retro-app floppy">
+              <div class="app-title">💾 SAVE TO FLOPPY</div><div class="floppy-disc">💾</div>
+              <button id="saveFloppy" class="pixel-btn">SAVE MEMORY</button><div id="floppyStatus">READY</div>
+            </div>
+          </div>
+        </section>
+<section id="future" class="future-section win-box">
+          <div class="box-head">✉️ MESSAGE TO POSTERITY.EXE</div>
+          <div class="future-inner"><h3>RENATINHO, WRITE TO YOUR FUTURE SELF</h3><p>Esta aba é só dele. Um recado para o Renatinho do futuro.</p><textarea id="futureMessage" rows="8" maxlength="1200" placeholder="Querido Renatinho do futuro..."></textarea><div class="future-actions"><button id="saveFuture" class="pixel-btn">💾 SEAL MESSAGE</button><span id="futureStatus">UNSEALED</span></div></div>
+        </section>
+      </main>
     </div>
 
+    <footer class="site-footer">
+      <span>★ BEST VIEWED AT 800×600 ★</span><span>MADE WITH TABLES, MARQUEES &amp; LOVE</span><span>NO COOKIES • NO ADS • JUST BIRTHDAY</span>
+    </footer>
+  </div>
+</section>
 
-<div class="card-open-audio" id="cardOpenAudio" aria-live="polite">
-  <span class="music-dot"></span><span id="cardMusicLabel">♫ NOW PLAYING</span>
-  <button type="button" id="cardMusicToggle">❚❚</button>
+<div id="modal" class="modal hidden" aria-hidden="true">
+  <div class="modal-backdrop"></div>
+  <div class="card-window" id="cardWindow">
+    <div class="window-title"><span id="modalFile">FRIEND_CARD.EXE</span><button id="closeCard" aria-label="Fechar">X</button></div>
+    <div class="card-opening" id="cardOpening"></div>
+    <div class="card-content" id="cardContent"></div>
+    <div class="music-bar hidden" id="musicBar"><span class="music-eq">♫</span><span id="musicName">NOW PLAYING</span><button id="musicPause">❚❚</button></div>
+  </div>
 </div>
 
+<script src="script.js?v=9"></script>
 </body>
 </html>

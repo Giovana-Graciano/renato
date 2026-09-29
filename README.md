@@ -1,28 +1,28 @@
+# Renatinho Birthday — V8 Y2K
 
-# V4 — Maximum Y2K Visual Upgrade
+Estrutura:
+- `index.html` — experiência pública do Renatinho.
+- `create.html` — área secreta dos amigos.
+- `admin.html` — área privada da organizadora.
+- `cards/cards.json` — cartões publicados.
 
-Esta versão mantém a arquitetura da V3 e intensifica a linguagem visual:
-- chrome / bevel / 3D falso;
-- reflexos e sweeps;
-- CRT e scanlines;
-- badges, visitor counter e janelas flutuantes;
-- botão com brilho;
-- feedback sonoro de interface via Web Audio;
-- pseudo-3D por mouse;
-- Card Factory preservado;
-- cartões e Secret Level preservados.
+No GitHub Pages, publique todos os arquivos descompactados mantendo a pasta `cards`.
+Códigos atuais:
+- Friends: `RENATINHO2000`
+- Admin: `RENATO-ADMIN-2026`
 
-O site continua sem dependência de bibliotecas externas para esses efeitos.
+A música de arquivo pode tocar no clique de abertura. YouTube/Spotify dependem das políticas de reprodução do provedor/navegador.
 
-# RENATINHO BIRTHDAY — V3.5
 
-V3 baseada no conceito Y2K/Flash/Tumblr/PowerPoint: site principal + Card Factory + sistema de configuração JSON.
+## V11
+- Card Factory includes a SURPRISE ME button that randomizes Y2K themes, typography and message styling.
 
-## Fluxo
-1. Amigo abre o Card Maker.
-2. Cria cartão com texto, tema, emojis, movimento, efeitos, imagem/GIF e música.
-3. Pode copiar o JSON ou exportar `cartao-nome.json`.
-4. Admin importa o JSON para revisão.
-5. Para publicação permanente, o cartão pode ser incorporado em `cards/cards.json`.
 
-YouTube e Spotify são tratados como embeds; o site não baixa nem armazena música comercial.
+## V16
+- Friend Card Factory is password-protected.
+- Password: RENATINHO2000
+- Supports up to 3 photos, photo styles, custom text color and two GIF positions.
+
+
+## V17 surgical patch
+This version is based directly on V16. Card Factory markup, styling and logic were preserved; only navigation was added there. Main-page fixes are limited to Love File reveal, Old Internet Zone heading spacing, and card opening animation.
