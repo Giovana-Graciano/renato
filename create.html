@@ -1,188 +1,149 @@
-<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow"><title>★ SECRET FRIEND AREA ★</title><link rel="stylesheet" href="style.css?v=14">
-<style>
-.factory-v10{display:grid;grid-template-columns:minmax(0,1fr) minmax(330px,44%);gap:14px;align-items:start}
-.v10-panel{background:linear-gradient(145deg,#f9fff5,#c6d7c7);border:6px ridge #fff;box-shadow:7px 7px #111;padding:12px}
-.v10-panel h3{margin:0 0 8px;color:#0d3c22;text-shadow:2px 2px #fff;font-size:15px}
-.v10-row{display:grid;grid-template-columns:1fr 1fr;gap:8px}
-.v10-field{margin:8px 0}.v10-field label{display:block;font-size:9px;font-weight:bold;margin-bottom:4px}
-.v10-field input,.v10-field select,.v10-field textarea{width:100%;box-sizing:border-box;border:4px inset #fff;background:#fff;padding:7px;font-family:inherit}
-.v10-themes{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}
-.v10-theme{border:4px outset #fff;padding:7px;background:#eee;cursor:pointer;font-size:9px;font-weight:bold;min-height:48px}
-.v10-theme.active{border:4px inset #fff;outline:3px solid #111}
-.v10-emojis{display:flex;flex-wrap:wrap;gap:5px}.v10-emoji{font-size:22px;border:3px outset #fff;background:#fff;cursor:pointer;padding:3px}
-.v10-preview-wrap{position:sticky;top:10px}
-.v10-preview{min-height:520px;position:relative;overflow:hidden;border:8px ridge #fff;box-shadow:8px 8px #111;padding:20px;background:linear-gradient(135deg,#0d6b3b,#ef3340,#fff)}
-.v10-preview .scan{position:absolute;inset:0;background:repeating-linear-gradient(0deg,rgba(255,255,255,.06) 0 2px,transparent 2px 5px);pointer-events:none}
-.v10-card{position:relative;z-index:2;min-height:460px;border:8px ridge #fff;box-shadow:0 0 0 4px #111,10px 10px #111;background:rgba(255,255,255,.9);padding:18px;text-align:center;overflow:hidden}
-.v10-card h2{font-size:28px;margin:8px 0;color:#102c1b;text-shadow:3px 3px #fff}.v10-card p{font-size:13px;line-height:1.5;color:#111}
-.v10-hero{font-size:70px;animation:v10dance .65s infinite alternate;filter:drop-shadow(4px 4px #111);display:inline-block}
-.v10-float{position:absolute;animation:v10float 2.3s ease-in-out infinite}.v10-f1{left:8%;top:12%}.v10-f2{right:8%;top:22%;animation-delay:.5s}.v10-f3{left:12%;bottom:16%;animation-delay:1s}.v10-f4{right:12%;bottom:10%;animation-delay:1.5s}
-.v10-gif{max-width:150px;max-height:120px;border:4px ridge #fff;box-shadow:4px 4px #111;margin:8px auto}
-.v10-status{font-size:9px;background:#111;color:#8dffb4;padding:7px;margin-top:8px;min-height:14px}
-@keyframes v10dance{to{transform:translateY(-8px) rotate(4deg) scale(1.05)}}@keyframes v10float{50%{transform:translateY(-14px) rotate(8deg)}}
-@media(max-width:900px){.factory-v10{grid-template-columns:1fr}.v10-preview-wrap{position:relative}.v10-row{grid-template-columns:1fr}}
-</style>
-
-<style>
-.friend-gate{position:fixed;inset:0;z-index:9999;display:flex;align-items:center;justify-content:center;background:radial-gradient(circle at 30% 20%,#d8ffe6 0,#123b26 35%,#070b09 100%);padding:20px;box-sizing:border-box}
-.gate-window{width:min(520px,100%);border:8px ridge #fff;box-shadow:12px 12px #000;background:#cbd6cc;color:#111}
-.gate-body{text-align:center;padding:28px 20px;background:linear-gradient(135deg,#fff,#cde5d3)}
-.gate-icon{font-size:64px;animation:gatePulse 1s infinite alternate}.gate-body h1{font-size:26px;text-shadow:3px 3px #fff;margin:8px}.gate-body p{font-size:11px}.gate-body input{width:100%;box-sizing:border-box;padding:12px;border:5px inset #fff;font-family:"Courier New",monospace;font-weight:bold;margin:10px 0;text-align:center}.gate-status{margin-top:12px;background:#111;color:#8dffb4;padding:8px;font:10px "Courier New"}.gate-status.bad{color:#ff7b8f}.gate-status.ok{color:#fff36b}@keyframes gatePulse{to{transform:scale(1.08) rotate(3deg)}}
-body.factory-locked>main{filter:blur(8px);pointer-events:none;user-select:none}
-.v10-options-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
-.v10-color-row{display:grid;grid-template-columns:1fr 1fr;gap:8px}
-.v10-color-row input[type=color]{width:100%;height:38px;padding:2px;border:4px inset #fff;background:#fff}
-.v10-images{display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px}
-.v10-image-slot{background:#edf5ee;border:4px ridge #fff;padding:6px}
-.v10-image-slot label{font-size:8px;font-weight:bold;display:block;margin-bottom:4px}
-.v10-image-slot input{font-size:8px!important;padding:5px!important}
-.v10-image-style{display:grid;grid-template-columns:1fr 1fr;gap:6px}
-.v10-media-strip{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin:8px 0}
-.v10-preview-media{max-width:130px;max-height:105px;object-fit:cover;border:5px ridge #fff;box-shadow:4px 4px #111}
-.v10-photo-polaroid{border:8px solid #fff!important;box-shadow:5px 7px #111!important;padding:5px;background:#fff}
-.v10-photo-pixel{border:5px dotted #111!important;image-rendering:auto}
-.v10-photo-sticker{border:4px solid #fff!important;border-radius:18px;transform:rotate(-2deg);box-shadow:5px 5px #111!important}
-.v10-photo-classic{border:6px ridge #fff!important;box-shadow:5px 5px #111!important}
-.legacy-head{display:flex!important;justify-content:space-between;align-items:center;min-height:32px;box-sizing:border-box}
-.retro-zone-fixed .legacy-grid{align-items:stretch}
-.retro-zone-fixed .retro-app{height:100%;box-sizing:border-box}
-@media(max-width:900px){.v10-images,.v10-options-grid,.v10-color-row{grid-template-columns:1fr}}
-</style>
-</head><body>
-<div id="friendGate" class="friend-gate">
-  <div class="gate-window">
-    <div class="window-title"><span>★ FRIEND_AREA.EXE</span><span>_ □ X</span></div>
-    <div class="gate-body">
-      <div class="gate-icon">🔐</div>
-      <div class="tiny blink">CLASSIFIED FRIEND ACCESS</div>
-      <h1>ENTER THE FRIEND AREA</h1>
-      <p>Esta área é exclusiva para quem recebeu a senha.</p>
-      <input id="friendPassword" type="password" autocomplete="off" placeholder="DIGITE A SENHA">
-      <button id="friendUnlock" class="start-button">▶ UNLOCK CARD FACTORY ◀</button>
-      <div id="friendGateStatus" class="gate-status">ACCESS: LOCKED</div>
-    </div>
-  </div>
-</div>
-
-<main class="intro-screen" style="min-height:100vh;padding:24px;box-sizing:border-box">
-  <div class="intro-window" style="width:min(1180px,100%);min-height:auto">
-    <div class="window-title"><span>★ FRIEND_CARD_FACTORY.EXE</span><span>PUBLIC</span></div>
-    <div class="intro-content" style="justify-content:flex-start;padding:16px">
-      <div class="tiny blink">!!! FRIEND AREA • PASSWORD PROTECTED !!!</div>
-      <h1 style="font-size:32px">CARD FACTORY<span style="font-size:22px">CREATE YOUR RENATINHO MEMORY — ONE CARD, ONE LIVE PREVIEW</span></h1>
-      <div class="factory-v10" id="factoryV10" style="width:100%">
-        <div class="v10-panel">
-          <h3>★ 01 — BUILD YOUR CARD ★</h3>
-          <div class="v10-row">
-            <div class="v10-field"><label>YOUR NAME</label><input id="v10Name" placeholder="Seu nome" maxlength="40"></div>
-            <div class="v10-field"><label>CARD TITLE</label><input id="v10Title" placeholder="Uma memória..." maxlength="60"></div>
-          </div>
-          <div class="v10-field"><label>MESSAGE</label><textarea id="v10Msg" rows="6" maxlength="1200" placeholder="Escreva sua mensagem para o Renatinho..."></textarea></div>
-          
-          <div class="v10-options-grid">
-            <div class="v10-field"><label>LETTER COLOR</label><input id="v10TextColor" type="color" value="#102c1b"></div>
-            <div class="v10-field"><label>PHOTO STYLE</label><select id="v10PhotoStyle"><option value="classic">🖼️ CLASSIC FRAME</option><option value="polaroid">📸 POLAROID</option><option value="pixel">🕹️ PIXEL</option><option value="sticker">💿 STICKER</option></select></div>
-          </div>
-          <div class="v10-field">
-            <label>PHOTOS — UP TO 3 IMAGES</label>
-            <div class="v10-images">
-              <div class="v10-image-slot"><label>PHOTO 01</label><input id="v10Photo1" type="file" accept="image/*"></div>
-              <div class="v10-image-slot"><label>PHOTO 02</label><input id="v10Photo2" type="file" accept="image/*"></div>
-              <div class="v10-image-slot"><label>PHOTO 03</label><input id="v10Photo3" type="file" accept="image/*"></div>
-            </div>
-          </div>
-          <div class="v10-field">
-            <label>GIFS — CHOOSE WHERE THEY APPEAR</label>
-            <div class="v10-row">
-              <input id="v10GifTop" placeholder="GIF TOP URL">
-              <input id="v10GifBottom" placeholder="GIF BOTTOM URL">
-            </div>
-          </div>
-<div class="v10-row">
-            <div class="v10-field"><label>FONT</label><select id="v10Font"><option value="Arial, sans-serif">Arial / Internet 2000</option><option value="Georgia, serif">Georgia / Carta clássica</option><option value="Trebuchet MS, sans-serif">Trebuchet / MSN</option><option value="Courier New, monospace">Courier / Terminal</option><option value="Comic Sans MS, cursive">Comic Sans / 2000 demais</option><option value="Impact, sans-serif">Impact / Banner</option></select></div>
-            <div class="v10-field"><label>ANIMATION</label><select id="v10Anim"><option value="secret">★ SECRET</option><option value="stadium">⚽ STADIUM</option><option value="dino">🦖 DINOSAUR</option><option value="pirate">☠️ PIRATE</option><option value="music">♫ MUSIC</option><option value="books">📖 BOOK</option></select></div>
-          </div>
-          <div class="v10-field"><label>CHOOSE YOUR THEME</label><div class="v10-themes"><button type="button" class="v10-theme active" data-theme="y2k">💿 Y2K</button><button type="button" class="v10-theme" data-theme="fluminense">⚽ FLU</button><button type="button" class="v10-theme" data-theme="dino">🦖 DINO</button><button type="button" class="v10-theme" data-theme="pirate">☠️ PIRATE</button><button type="button" class="v10-theme" data-theme="music">🎧 MUSIC</button><button type="button" class="v10-theme" data-theme="books">📚 BOOKS</button></div></div>
-          <div class="v10-field"><label>EMOJIS — CLICK TO ADD</label><div class="v10-emojis"><button type="button" class="v10-emoji">💚</button><button type="button" class="v10-emoji">❤️</button><button type="button" class="v10-emoji">⭐</button><button type="button" class="v10-emoji">✨</button><button type="button" class="v10-emoji">⚽</button><button type="button" class="v10-emoji">🦖</button><button type="button" class="v10-emoji">☠️</button><button type="button" class="v10-emoji">🏴‍☠️</button><button type="button" class="v10-emoji">🎸</button><button type="button" class="v10-emoji">🎧</button><button type="button" class="v10-emoji">📚</button><button type="button" class="v10-emoji">📖</button><button type="button" class="v10-emoji">🔥</button><button type="button" class="v10-emoji">💿</button><button type="button" class="v10-emoji">💻</button><button type="button" class="v10-emoji">🌈</button></div></div>
-          <div class="v10-field"><label>MUSIC</label><select id="v10MusicType"><option value="none">SEM MÚSICA</option><option value="youtube">YOUTUBE</option><option value="spotify">SPOTIFY</option><option value="file">ARQUIVO DE ÁUDIO</option></select><input id="v10Music" placeholder="Cole o link do YouTube/Spotify" style="margin-top:6px"><input id="v10MusicFile" type="file" accept="audio/*" style="display:none;margin-top:6px"></div>
-          <button id="v11Surprise" type="button" style="width:100%;margin:10px 0;padding:12px;background:linear-gradient(#fff36b,#ff5b8d);border:6px outset #fff;box-shadow:5px 5px #111;font-weight:900;font-size:12px;cursor:pointer">✨ SURPRISE ME! — RANDOM Y2K MAGIC ✨</button>
-          <button id="exportCard" type="button" class="start-button" style="font-size:10px;width:100%">💾 EXPORTAR MEU CARTÃO</button>
-          <div class="v10-status" id="v10Status">LIVE PREVIEW ONLINE — altere qualquer campo e veja o cartão mudar.</div>
-          <p style="font-size:8px;line-height:1.4">Quando terminar, clique em <b>EXPORTAR MEU CARTÃO</b>. Um arquivo <b>.json</b> será baixado. Envie esse arquivo para a pessoa responsável pelo site. Ele só será publicado depois da revisão.</p>
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow,noarchive">
+<meta name="theme-color" content="#063b24">
+<title>★ SECRET FRIEND AREA — RENATINHO ★</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main class="access-page" id="createPage">
+  <section class="access-shell">
+    <div class="access-titlebar"><span>★ FRIEND_AREA.EXE</span><span>● CLASSIFIED</span></div>
+    <div id="gate">
+      <div class="access-body">
+        <div class="access-hero">
+          <div class="access-star">★</div>
+          <h1>SECRET FRIEND AREA</h1>
+          <p>Você foi recrutado para uma missão especial.<br><b>NÃO MOSTRE ESTA PÁGINA AO RENATINHO.</b></p>
+          <p>Digite o código que a Giovana te enviou.</p>
         </div>
-        <div class="v10-preview-wrap"><div class="v10-panel"><h3>★ 02 — LIVE PREVIEW ★</h3><div class="v10-preview" id="v10Preview"><div class="scan"></div><div class="v10-card" id="v10Card"><div class="v10-float v10-f1">✨</div><div class="v10-float v10-f2">💚</div><div class="v10-float v10-f3">⭐</div><div class="v10-float v10-f4">💿</div><div class="v10-hero" id="v10Hero">💚</div><h2 id="v10PreviewTitle">MY RENATINHO MEMORY</h2><div id="v10PreviewName" style="font-weight:bold">FROM: FRIEND</div><img id="v10PreviewGif" class="v10-gif" hidden alt=""><img id="v10PreviewPhoto" class="v10-gif" hidden alt="">
-          <div id="v10PreviewGifsTop" class="v10-media-strip"></div>
-          <div id="v10PreviewPhotos" class="v10-media-strip"></div>
-<p id="v10PreviewMsg">Comece a escrever e veja sua memória aparecer aqui em tempo real.</p><div id="v10PreviewEmojis" style="font-size:25px;min-height:36px">✨ 💚 ⭐</div><div id="v10PreviewGifsBottom" class="v10-media-strip"></div><div style="margin-top:20px;font-size:9px">★ MADE WITH THE CARD FACTORY ★</div></div></div></div></div>
+        <form class="access-form" id="gateForm">
+          <label>ACCESS CODE
+            <input id="accessCode" autocomplete="off" spellcheck="false" maxlength="32" placeholder="••••••••">
+          </label>
+          <button type="submit">🔓 ENTER SECRET AREA</button>
+          <div class="access-error" id="gateError"></div>
+          <small class="access-small">★ NO SPOILERS • NO SHARING • HAVE FUN ★</small>
+        </form>
       </div>
     </div>
-  </div>
-</main>
-<script>
-(()=>{
- const q=s=>document.querySelector(s), qa=s=>document.querySelectorAll(s);
- const PASSWORD="RENATINHO2000";
- const gate=q("#friendGate"), main=q("main");
- function unlock(){
-   const value=q("#friendPassword").value.trim();
-   const status=q("#friendGateStatus");
-   if(value===PASSWORD){
-     sessionStorage.setItem("renatinhoFriendAccess","1");
-     gate.style.display="none"; document.body.classList.remove("factory-locked");
-     status.className="gate-status ok"; status.textContent="ACCESS: GRANTED ✓";
-   }else{
-     status.className="gate-status bad"; status.textContent="ACCESS DENIED — TRY AGAIN";
-     q("#friendPassword").animate([{transform:"translateX(-5px)"},{transform:"translateX(5px)"},{transform:"translateX(0)"}],{duration:180});
-   }
- }
- document.body.classList.add("factory-locked");
- if(sessionStorage.getItem("renatinhoFriendAccess")==="1") gate.style.display="none";
- q("#friendUnlock")?.addEventListener("click",unlock);
- q("#friendPassword")?.addEventListener("keydown",e=>{if(e.key==="Enter")unlock()});
 
- const state={theme:"y2k",emojis:["✨","💚","⭐"],photos:[],audio:""};
- const themes={
-  y2k:{bg:"linear-gradient(135deg,#b8ffd0,#ef3340,#fff)",hero:"💿",anim:"secret"},
-  fluminense:{bg:"linear-gradient(135deg,#006b3c,#fff,#c8102e)",hero:"⚽",anim:"stadium"},
-  dino:{bg:"linear-gradient(135deg,#9be564,#1b7f3a,#f4f1d7)",hero:"🦖",anim:"dino"},
-  pirate:{bg:"linear-gradient(135deg,#111,#6e1525,#f0d46a)",hero:"☠️",anim:"pirate"},
-  music:{bg:"linear-gradient(135deg,#21103d,#ff2e83,#13d9ff)",hero:"🎧",anim:"music"},
-  books:{bg:"linear-gradient(135deg,#5b351f,#f1d7a5,#f7f0df)",hero:"📚",anim:"books"}
- };
- const pick=a=>a[Math.floor(Math.random()*a.length)];
- const esc=s=>String(s).replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"}[m]));
- function render(){
-   const n=q("#v10Name").value||"FRIEND", t=q("#v10Title").value||"MY RENATINHO MEMORY", m=q("#v10Msg").value||"Comece a escrever e veja sua memória aparecer aqui em tempo real.";
-   const font=q("#v10Font").value, color=q("#v10TextColor").value, style=q("#v10PhotoStyle").value;
-   q("#v10PreviewName").textContent="FROM: "+n; q("#v10PreviewTitle").textContent=t; q("#v10PreviewMsg").textContent=m;
-   q("#v10PreviewEmojis").textContent=state.emojis.join(" "); q("#v10Hero").textContent=themes[state.theme].hero;
-   q("#v10Preview").style.background=themes[state.theme].bg; q("#v10Card").style.fontFamily=font;
-   q("#v10Card").style.color=color; q("#v10PreviewTitle").style.color=color; q("#v10PreviewMsg").style.color=color;
-   const photoBox=q("#v10PreviewPhotos"); photoBox.innerHTML="";
-   state.photos.forEach(src=>{const img=document.createElement("img");img.src=src;img.className="v10-preview-media v10-photo-"+style;photoBox.appendChild(img)});
-   const top=q("#v10GifTop").value.trim(), bottom=q("#v10GifBottom").value.trim();
-   const topBox=q("#v10PreviewGifsTop"), bottomBox=q("#v10PreviewGifsBottom"); topBox.innerHTML="";bottomBox.innerHTML="";
-   [top].filter(Boolean).forEach(src=>{const img=document.createElement("img");img.src=src;img.className="v10-preview-media";topBox.appendChild(img)});
-   [bottom].filter(Boolean).forEach(src=>{const img=document.createElement("img");img.src=src;img.className="v10-preview-media";bottomBox.appendChild(img)});
-   q("#v10Status").textContent="LIVE PREVIEW • "+state.theme.toUpperCase()+" • "+state.photos.length+" PHOTOS • "+state.emojis.length+" EMOJIS";
- }
- qa("#factoryV10 input,#factoryV10 textarea,#factoryV10 select").forEach(el=>el.addEventListener("input",render));
- qa(".v10-theme").forEach(b=>b.addEventListener("click",()=>{qa(".v10-theme").forEach(x=>x.classList.remove("active"));b.classList.add("active");state.theme=b.dataset.theme;q("#v10Anim").value=themes[state.theme].anim;render()}));
- qa(".v10-emoji").forEach(b=>b.addEventListener("click",()=>{state.emojis.push(b.textContent);if(state.emojis.length>14)state.emojis.shift();render()}));
- ["v10Photo1","v10Photo2","v10Photo3"].forEach(id=>q("#"+id)?.addEventListener("change",e=>{
-   const idx=["v10Photo1","v10Photo2","v10Photo3"].indexOf(id), f=e.target.files?.[0]; if(!f)return;
-   const reader=new FileReader(); reader.onload=()=>{state.photos[idx]=reader.result;state.photos=state.photos.filter(Boolean);render()};reader.readAsDataURL(f);
- }));
- q("#v10MusicType").addEventListener("change",()=>{const t=q("#v10MusicType").value;q("#v10Music").style.display=["youtube","spotify"].includes(t)?"block":"none";q("#v10MusicFile").style.display=t==="file"?"block":"none"});q("#v10MusicType").dispatchEvent(new Event("change"));
- q("#v10MusicFile").addEventListener("change",e=>{const f=e.target.files?.[0];if(!f)return;const r=new FileReader();r.onload=()=>{state.audio=r.result;render()};r.readAsDataURL(f)});
- q("#exportCard").addEventListener("click",()=>{
-   const name=q("#v10Name").value.trim(), msg=q("#v10Msg").value.trim(); if(!name||!msg){q("#v10Status").textContent="⚠ PREENCHA PELO MENOS SEU NOME E SUA MENSAGEM.";return}
-   const type=q("#v10MusicType").value,url=q("#v10Music").value.trim();
-   const c={version:"renatinho-card-v16",id:name.toLowerCase().replace(/[^a-z0-9]+/g,"-")+"-"+Date.now().toString(36).slice(-5),nome:name,titulo:q("#v10Title").value.trim()||"FELIZ ANIVERSÁRIO",icon:themes[state.theme].hero,hint:"FRIEND CARD • "+state.theme.toUpperCase(),tipoDeAnimacao:q("#v10Anim").value,mensagem:msg,fotos:state.photos.map((data,i)=>({data,nome:"foto-"+(i+1)})),gifs:{top:q("#v10GifTop").value.trim(),bottom:q("#v10GifBottom").value.trim()},musica:type==="file"?state.audio:url,musicaNome:type==="file"?(q("#v10MusicFile").files?.[0]?.name||"audio.mp3"):type==="youtube"?"YouTube":type==="spotify"?"Spotify":"",cardConfig:{musica:{type,url,autoPlay:true},theme:state.theme,font:q("#v10Font").value,textColor:q("#v10TextColor").value,photoStyle:q("#v10PhotoStyle").value,emojis:state.emojis,gifs:{top:q("#v10GifTop").value.trim(),bottom:q("#v10GifBottom").value.trim()}},status:"pending-admin-approval",createdAt:new Date().toISOString()};
-   const a=document.createElement("a");a.href=URL.createObjectURL(new Blob([JSON.stringify(c,null,2)],{type:"application/json"}));a.download="cartao-"+c.id+".json";a.click();q("#v10Status").textContent="★ CARTÃO EXPORTADO! MANDE O .JSON PARA A GIOVANA ★";
- });
- q("#v11Surprise").addEventListener("click",()=>{const k=pick(Object.keys(themes)),t=themes[k];q("#v10Title").value=pick(["RENATINHO.EXE","OMG HAPPY BIRTHDAY","A VERY SPECIAL MEMORY","MEMORY UNLOCKED","TRICOLOR BIRTHDAY MODE"]);q("#v10Name").value=q("#v10Name").value||pick(["AMIGO","YOUR FRIEND","A FRIEND FROM THE INTERNET"]);q("#v10Msg").value=pick(["Uma memória especial para você, Renatinho. Feliz aniversário! 💚","Que seu novo capítulo seja tão caótico e divertido quanto a internet dos anos 2000.","Esta mensagem foi enviada diretamente do futuro. Feliz aniversário!","Você desbloqueou uma memória secreta. ♥","Que o Flu esteja sempre vencendo e a vida sempre dando motivos para comemorar. 🇭🇺"]);q("#v10Font").value=pick(["Arial, sans-serif","Georgia, serif","Trebuchet MS, sans-serif","Courier New, monospace","Comic Sans MS, cursive","Impact, sans-serif"]);q("#v10TextColor").value=pick(["#102c1b","#006b3c","#c8102e","#8d1738","#111111"]);q("#v10PhotoStyle").value=pick(["classic","polaroid","pixel","sticker"]);state.emojis=[t.hero,"✨","⭐","💚"];q("#v10Anim").value=t.anim;qa(".v10-theme").forEach(x=>x.classList.toggle("active",x.dataset.theme===k));render();q("#v11Surprise").animate([{transform:"rotate(-2deg) scale(1)"},{transform:"rotate(2deg) scale(1.05)"},{transform:"rotate(0) scale(1)"}],{duration:450})});
- render();
-})();
-</script>
-</body></html>
+    <div id="factory" class="hidden-page">
+      <div class="access-body">
+        <div class="access-hero">
+          <div class="access-star">✦</div>
+          <h1>RENATINHO CARD FACTORY</h1>
+          <p>Construa sua obra-prima dos anos 2000 e entregue para a administradora.</p>
+        </div>
+
+        <div class="maker-layout" style="margin-top:16px">
+          <form class="maker-panel" id="makerForm">
+            <label>SEU NOME<input id="mkName" maxlength="28" required placeholder="Ex.: João"></label>
+            <label>TÍTULO DO CARTÃO<input id="mkTitle" maxlength="42" placeholder="Ex.: MUSIC MODE"></label>
+            <label>SUA MENSAGEM<textarea id="mkMessage" rows="5" maxlength="900" placeholder="Escreva sua mensagem para o Renatinho..." required></textarea></label>
+
+            <div class="maker-row">
+              <label>FONTE / ESTILO
+                <select id="mkFont"><option value="pixel">PIXEL ARCADE</option><option value="typewriter">TYPEWRITER</option><option value="bubble">BUBBLE 2000</option><option value="hand">MS PAINT HAND</option></select>
+              </label>
+              <label>ALINHAMENTO
+                <select id="mkAlign"><option value="center">CENTRO</option><option value="left">ESQUERDA</option><option value="right">DIREITA</option></select>
+              </label>
+            </div>
+
+            <label>IMAGEM / GIF / FOTO
+              <input id="mkImage" type="file" accept="image/*">
+            </label>
+            <div class="image-style-picks">
+              <label><input type="radio" name="imgStyle" value="polaroid" checked> 📌 POLAROID</label>
+              <label><input type="radio" name="imgStyle" value="sticker"> 💥 STICKER</label>
+              <label><input type="radio" name="imgStyle" value="glow"> ✨ GLITTER FRAME</label>
+              <label><input type="radio" name="imgStyle" value="tilt"> 📐 TILT</label>
+            </div>
+
+            <div class="maker-row">
+              <label>TEMA
+                <select id="mkTheme">
+                  <option value="green">TRICOLOR / GREEN</option><option value="red">RED ALERT</option>
+                  <option value="gold">GOLD WEB</option><option value="purple">MSN PURPLE</option>
+                  <option value="blue">AIM BLUE</option><option value="pink">TUMBLR PINK</option>
+                </select>
+              </label>
+              <label>ANIMAÇÃO
+                <select id="mkAnim">
+                  <option value="powerpoint">POWERPOINT POP</option><option value="glitter">GLITTER BLAST</option>
+                  <option value="bounce">BOUNCE 2004</option><option value="terminal">HACKER.EXE</option>
+                  <option value="vinyl">CD / MUSIC</option><option value="dino">DINO ATTACK</option>
+                </select>
+              </label>
+            </div>
+
+            <label>EMOJIS / STICKERS <small class="maker-hint">Clique para adicionar/remover.</small></label>
+            <div class="emoji-picks" id="emojiPicks">
+              <button type="button" data-emoji="✨">✨</button><button type="button" data-emoji="⭐">⭐</button>
+              <button type="button" data-emoji="💚">💚</button><button type="button" data-emoji="❤️">❤️</button>
+              <button type="button" data-emoji="🦖">🦖</button><button type="button" data-emoji="⚽">⚽</button>
+              <button type="button" data-emoji="🎵">🎵</button><button type="button" data-emoji="💿">💿</button>
+              <button type="button" data-emoji="📖">📖</button><button type="button" data-emoji="🦋">🦋</button>
+              <button type="button" data-emoji="💥">💥</button><button type="button" data-emoji="☠️">☠️</button>
+            </div>
+
+            <label>EFEITOS</label>
+            <div class="effect-picks">
+              <label><input type="checkbox" id="fxGlitter" checked> ✦ GLITTER</label>
+              <label><input type="checkbox" id="fxSparkle" checked> ✨ SPARKLES</label>
+              <label><input type="checkbox" id="fxFloat" checked> 🪩 EMOJIS FLUTUANDO</label>
+              <label><input type="checkbox" id="fxScan" checked> 📺 SCANLINES</label>
+            </div>
+
+            <label>MÚSICA
+              <select id="mkMusicType">
+                <option value="none">SEM MÚSICA</option><option value="youtube">LINK DO YOUTUBE</option>
+                <option value="spotify">LINK DO SPOTIFY</option><option value="file">ARQUIVO DE ÁUDIO</option>
+              </select>
+            </label>
+            <input id="mkMusicUrl" placeholder="Cole o link do YouTube ou Spotify" class="maker-music-url hidden">
+            <label id="mkMusicFileLabel" class="maker-file-label hidden">ARQUIVO DE ÁUDIO
+              <input id="mkMusicFile" type="file" accept="audio/*">
+            </label>
+
+            <div class="maker-actions">
+              <button type="button" id="randomMakerBtn">🎲 SURPRESA!</button>
+              <button type="button" id="previewMakerBtn">▶ TESTAR</button>
+              <button type="button" id="exportMakerBtn">💾 ENVIAR CARTÃO</button>
+            </div>
+            <div class="access-status" id="makerStatus">● READY • YOUR MASTERPIECE IS WAITING</div>
+            <small class="maker-hint">Ao clicar em ENVIAR CARTÃO, será baixado um arquivo <b>.json</b>. Mande esse arquivo para a Giovana. Seu cartão só entra no site depois que ela publicar.</small>
+          </form>
+
+          <div class="maker-preview-wrap">
+            <div class="preview-label">LIVE PREVIEW • 800x600 INTERNET</div>
+            <div class="maker-preview" id="makerPreview">
+              <div class="maker-skyline"></div>
+              <div class="maker-sticker" id="previewEmojis">✨ 💚 ⭐</div>
+              <div class="maker-card-inner">
+                <div class="preview-badge">NEW!!!</div>
+                <div class="preview-icon" id="previewIcon">★</div>
+                <img id="previewImage" class="preview-image hidden" alt="">
+                <div class="preview-title" id="previewTitle">MEU CARTÃO</div>
+                <div class="preview-from" id="previewFrom">DE: AMIGO</div>
+                <div class="preview-message" id="previewMessage">Sua mensagem aparece aqui.</div>
+                <div class="preview-music" id="previewMusic">♫ NO MUSIC SELECTED</div>
+              </div>
+            </div>
+            <div class="maker-status" id="liveStatus">● LIVE • READY</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+<script src="create.js"></script>
+</body>
+</html>
