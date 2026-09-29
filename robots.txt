@@ -1,0 +1,3 @@
+User-agent: *
+Disallow: /create.html
+Disallow: /admin.html
